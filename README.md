@@ -1,4 +1,4 @@
-# assignr [![Build Status](https://travis-ci.org/coatless/assignr.svg)](https://travis-ci.org/coatless/assignr) [![Package-License](http://img.shields.io/badge/license-GPL--3-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-3.0.html) [![CRAN](http://www.r-pkg.org/badges/version/assignr)](https://cran.r-project.org/package=assignr) [![Downloads](http://cranlogs.r-pkg.org/badges/assignr?color=brightgreen)](http://www.r-pkg.org/pkg/assignr)
+# assignr [![Build Status](https://travis-ci.org/coatless/assignr.svg)](https://travis-ci.org/coatless/assignr) [![Package-License](http://img.shields.io/badge/license-GPL%20(%3E=2)-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html) [![CRAN](http://www.r-pkg.org/badges/version/assignr)](https://cran.r-project.org/package=assignr) [![Downloads](http://cranlogs.r-pkg.org/badges/assignr?color=brightgreen)](http://www.r-pkg.org/pkg/assignr)
 
 Tools for Educators Writing Assignments in _RMarkdown_  
 
@@ -140,14 +140,14 @@ length of 25 and store the following:
 - `x1`: The first 25 cubed numbers, starting from `1.` (e.g. `1`, `8`, `27`, et cetera)
 ````
 
-![PDF Rendering of `hw00-assign.Rmd`](https://coatless.github.io/assignr/assignr-assign-pdf.png)
+![PDF Rendering of `hw00-assign.Rmd`](https://github.com/coatless/assignr/blob/master/docs/assignr-assign-pdf.png)
 
 ### Solutions 
 
 Lastly, we have the assignment rmarkdown file that contains the solutions
 and their respective output.
 
-```
+````
 ---
 title: 'Homework X'
 author: "Prof. Name"
@@ -160,16 +160,22 @@ output:
 
 # Exercise 1 (Introductory `R`)
 
-For this exercise, we will create a couple different vectors.
 
 **(a)** Create two vectors `x0` and `x1`. Each should have a
 length of 25 and store the following:
 
 - `x0`: Each element should be the value `10`.
 - `x1`: The first 25 cubed numbers, starting from `1.` (e.g. `1`, `8`, `27`, et cetera)
-```
 
-![PDF Rendering of `hw00-soln.Rmd`](https://coatless.github.io/assignr/assignr-soln-pdf.png)
+**Solution:**
+
+```{r, solution = TRUE}
+x0 = rep(10, 25)
+x1 = (1:25) ^ 3
+```
+````
+
+![PDF Rendering of `hw00-soln.Rmd`](https://github.com/coatless/assignr/blob/master/docs/assignr-soln-pdf.png)
 
 ## Authors
 

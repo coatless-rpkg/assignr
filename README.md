@@ -1,7 +1,3 @@
----
-output: github_document
----
-
 # assignr [![Build Status](https://travis-ci.org/coatless/assignr.svg)](https://travis-ci.org/coatless/assignr) [![Package-License](http://img.shields.io/badge/license-GPL--3-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-3.0.html) [![CRAN](http://www.r-pkg.org/badges/version/assignr)](https://cran.r-project.org/package=assignr) [![Downloads](http://cranlogs.r-pkg.org/badges/assignr?color=brightgreen)](http://www.r-pkg.org/pkg/assignr)
 
 Tools for Educators Writing Assignments in _RMarkdown_  
@@ -21,7 +17,7 @@ contents are together in one file.
 
 `assignr` is only available via GitHub.
 
-To install the package from CRAN, you can type:
+To install the package from GitHub, you can type:
 
 ```r
 install.packages("devtools")

@@ -36,7 +36,8 @@ chunk options:
 2. `directions = TRUE` 
     - to indicate directions
 
-To use the latter chunk option, set the code chunk engine to `asis`, e.g.
+When specifying text directions that should not appear in the solution file, use
+the latter chunk option, and set the code chunk engine to `asis`, e.g.
 
 ````
 ```{asis name, directions = TRUE}

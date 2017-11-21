@@ -12,8 +12,8 @@ Writing homework assignments for students in the age of [_RMarkdown_](http://rma
 of _two_ separate documents -- `assign.Rmd` and `soln.Rmd` -- being created.
 The goal of `assignr` is to create one document `main.Rmd` that can be broken
 apart into the above two documents. Thus, there is no longer a need to 
-_copy and paste_ between the `assign` and the `soln` document as all of the
-content is together.
+_copy and paste_ between the `assign` and the `soln` documents as all of the
+contents are together in one file.
 
 ![Example workflow with `assignr`](https://media.giphy.com/media/l2QEaOm8vqHYG2aNG/giphy.gif)
 

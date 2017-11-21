@@ -1,0 +1,32 @@
+---
+title: 'Homework X'
+author: "Prof. Name"
+date: 'Due: Friday, Month Day by 1:59 PM CDT'
+output:
+  html_document:
+    theme: readable
+    toc: yes
+---
+
+# Exercise 1 (Introductory `R`)
+
+```{asis, directions = TRUE}
+For this exercise, we will create a couple different vectors.
+```
+
+**(a)** Create two vectors `x0` and `x1`. Each should have a
+length of 25 and store the following:
+
+- `x0`: Each element should be the value `10`.
+- `x1`: The first 25 cubed numbers, starting from `1.` (e.g. `1`, `8`, `27`, et cetera)
+
+```{asis, solution = TRUE}
+**Solution:**
+```
+
+```{r, solution = TRUE}
+x0 = rep(10, 25)
+x1 = (1:25) ^ 3
+```
+
+

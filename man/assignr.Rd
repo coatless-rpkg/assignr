@@ -46,6 +46,10 @@ documents.
 \dontrun{
 hw00_file = get_example_filepath("hw00-main.Rmd")
 
+if(interactive()) {
+    file.show(hw00_file)
+}
+
 assignr(hw00_file, "test")
 }
 }

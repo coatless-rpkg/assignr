@@ -5,6 +5,7 @@
 [![Package-License](http://img.shields.io/badge/license-GPL%20(%3E=2)-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
 [![CRAN](http://www.r-pkg.org/badges/version/assignr)](https://cran.r-project.org/package=assignr)
 [![Downloads](http://cranlogs.r-pkg.org/badges/assignr?color=brightgreen)](http://www.r-pkg.org/pkg/assignr)
+[![Coverage Status](https://img.shields.io/codecov/c/github/coatless/assigner/master.svg)](https://codecov.io/github/coatless/assigner?branch=master)
 
 Tools for creating homework assignments and solutions using [_RMarkdown_](http://rmarkdown.rstudio.com/).
 

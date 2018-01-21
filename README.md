@@ -1,11 +1,17 @@
-# assignr [![Build Status](https://travis-ci.org/coatless/assignr.svg)](https://travis-ci.org/coatless/assignr) [![Package-License](http://img.shields.io/badge/license-GPL%20(%3E=2)-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html) [![CRAN](http://www.r-pkg.org/badges/version/assignr)](https://cran.r-project.org/package=assignr) [![Downloads](http://cranlogs.r-pkg.org/badges/assignr?color=brightgreen)](http://www.r-pkg.org/pkg/assignr)
+# assignr 
 
-Tools for Educators Writing Assignments in _RMarkdown_  
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Build Status](https://travis-ci.org/coatless/assignr.svg)](https://travis-ci.org/coatless/assignr) 
+[![Package-License](http://img.shields.io/badge/license-GPL%20(%3E=2)-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
+[![CRAN](http://www.r-pkg.org/badges/version/assignr)](https://cran.r-project.org/package=assignr)
+[![Downloads](http://cranlogs.r-pkg.org/badges/assignr?color=brightgreen)](http://www.r-pkg.org/pkg/assignr)
+
+Tools for creating homework assignments and solutions using [_RMarkdown_](http://rmarkdown.rstudio.com/).
 
 ## Motivation
 
 Writing homework assignments for students in the age of [_RMarkdown_](http://rmarkdown.rstudio.com/) necessitates the creation
-of _two_ separate documents -- `assign.Rmd` and `soln.Rmd` -- being created.
+of _two_ separate documents -- `assign.Rmd` and `soln.Rmd`.
 The goal of `assignr` is to create one document `main.Rmd` that can be broken
 apart into the above two documents. Thus, there is no longer a need to 
 _copy and paste_ between the `assign` and the `soln` documents as all of the

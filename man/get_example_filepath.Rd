@@ -15,3 +15,10 @@ File path to the example file that ships with the package.
 \description{
 Obtains the file path for the example Rmd in the package.
 }
+\details{
+The following example files ship with the package:
+- hw00-main.Rmd
+}
+\examples{
+get_example_filepath("hw00-main.Rmd")
+}

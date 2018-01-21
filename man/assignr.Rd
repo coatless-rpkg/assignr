@@ -43,7 +43,6 @@ documents.
 }
 
 \examples{
-\dontrun{
 hw00_file = get_example_filepath("hw00-main.Rmd")
 
 if(interactive()) {
@@ -51,5 +50,4 @@ if(interactive()) {
 }
 
 assignr(hw00_file, "test")
-}
 }

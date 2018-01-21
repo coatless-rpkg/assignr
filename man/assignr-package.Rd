@@ -4,10 +4,14 @@
 \name{assignr-package}
 \alias{assignr-package}
 \alias{_PACKAGE}
-\title{assignr: Create Homework Assignments and Solutions using `rmarkdown`}
+\title{assignr: Create Homework Assignments and Solutions using 'RMarkdown'}
 \description{
-This package facilitates embedding solutions within an `rmarkdown`
-document that can later be given to students.
+Writing homework assignments for students in the age of 'RMarkdown'
+necessitates the creation of two separate documents -- assign.Rmd and soln.Rmd.
+The goal of assignr is to create one document main.Rmd that can be broken
+apart into the above two documents. Thus, there is no longer a need to copy
+and paste between the assign and the soln documents as all of the contents
+are together in one file.
 }
 \seealso{
 Useful links:

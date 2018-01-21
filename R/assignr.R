@@ -108,7 +108,12 @@ extract_hw_name = function(x) {
 #' @param x A `character` containing the name of the example Rmd.
 #'
 #' @return File path to the example file that ships with the package.
+#' @details
+#' The following example files ship with the package:
+#' - hw00-main.Rmd
 #' @export
+#' @examples
+#' get_example_filepath("hw00-main.Rmd")
 get_example_filepath = function(x) {
   fp_example = system.file( "example_rmd" , x , package = "assignr")
 
@@ -149,7 +154,6 @@ get_example_filepath = function(x) {
 #' documents.
 #'
 #' @examples
-#' \dontrun{
 #' hw00_file = get_example_filepath("hw00-main.Rmd")
 #'
 #' if(interactive()) {
@@ -157,7 +161,6 @@ get_example_filepath = function(x) {
 #' }
 #'
 #' assignr(hw00_file, "test")
-#' }
 assignr = function(file,
                    output_dir = NULL,
                    assign_file = TRUE,

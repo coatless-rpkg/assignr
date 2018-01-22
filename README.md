@@ -148,7 +148,7 @@ length of 25 and store the following:
 - `x1`: The first 25 cubed numbers, starting from `1.` (e.g. `1`, `8`, `27`, et cetera)
 ````
 
-![PDF Rendering of `hw00-assign.Rmd`](https://github.com/coatless/assignr/blob/master/docs/assignr-assign-pdf.png)
+![PDF Rendering of `hw00-assign.Rmd`](tools/readme/assignr-assign-pdf.png)
 
 ### Solutions 
 
@@ -183,7 +183,7 @@ x1 = (1:25) ^ 3
 ```
 ````
 
-![PDF Rendering of `hw00-soln.Rmd`](https://github.com/coatless/assignr/blob/master/docs/assignr-soln-pdf.png)
+![PDF Rendering of `hw00-soln.Rmd`](tools/readme/assignr-soln-pdf.png)
 
 ## Authors
 

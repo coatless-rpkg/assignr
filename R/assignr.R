@@ -50,6 +50,7 @@ generate_hw_pkg = function(x,
                            name,
                            type,
                            output_dir = paste0(name, "-", type),
+                           render_files = TRUE,
                            zip_files = TRUE) {
 
   if (length(remove_indexes) > 0) {
@@ -77,13 +78,15 @@ generate_hw_pkg = function(x,
   # write to .Rmd, then render as html and pdf
   writeLines(x, rmd_material_name)
 
-  rmarkdown::render(
-    rmd_material_name,
-    encoding = "UTF-8",
-    envir = new.env(),
-    output_format = c("html_document", "pdf_document"),
-    quiet = TRUE
-  )
+  if (render_files) {
+    rmarkdown::render(
+      rmd_material_name,
+      encoding = "UTF-8",
+      envir = new.env(),
+      output_format = c("html_document", "pdf_document"),
+      quiet = TRUE
+    )
+  }
 
   if (zip_files) {
     message("Creating a zip file for ", output_name)
@@ -130,12 +133,14 @@ get_example_filepath = function(x) {
 #' Transforms an RMarkdown file into two separate files: `filename-assign`
 #' and `filename-solutions`
 #'
-#' @param file        Input `.Rmd` file with `-main.Rmd` in the filename.
-#' @param output_dir  Output directory. Defaults to name of prefix of filename.
-#' @param soln_file   Generate Solution Material. Default is `TRUE`.
-#' @param assign_file Generate Student Assignment Material. Default is `TRUE`.
-#' @param zip_files   Create a zip file containing the relevant materials.
-#'                    Default is `TRUE`.
+#' @param file         Input `.Rmd` file with `-main.Rmd` in the filename.
+#' @param output_dir   Output directory. Defaults to name of prefix of filename.
+#' @param soln_file    Generate Solution Material. Default is `TRUE`.
+#' @param assign_file  Generate Student Assignment Material. Default is `TRUE`.
+#' @param zip_files    Create a zip file containing the relevant materials.
+#'                     Default is `TRUE`.
+#' @param render_files Create HTML and PDF output for each Rmd file.
+#'                     Default is `TRUE`.
 #' @export
 #' @return The function will generate assignment files for students and
 #' solution keys for instructors.
@@ -165,7 +170,8 @@ assignr = function(file,
                    output_dir = NULL,
                    assign_file = TRUE,
                    soln_file = TRUE,
-                   zip_files = TRUE) {
+                   zip_files = TRUE,
+                   render_files = TRUE) {
 
   if (length(file) != 1) {
     stop("Only one file may be processed at time.")
@@ -212,7 +218,9 @@ assignr = function(file,
       remove_indexes = c(solution_indexes, direction_chunk_indices),
       name = hw_name,
       type = "assign",
-      output_dir = output_dir
+      output_dir = output_dir,
+      render_files = render_files,
+      zip_files = zip_files
     )
   }
 
@@ -223,6 +231,7 @@ assignr = function(file,
       name = hw_name,
       type = "soln",
       output_dir = output_dir,
+      render_files = render_files,
       zip_files = zip_files
     )
   }

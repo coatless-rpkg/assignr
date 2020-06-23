@@ -4,8 +4,14 @@
 \alias{assignr}
 \title{Create Homework and Assignment Materials}
 \usage{
-assignr(file, output_dir = NULL, assign_file = TRUE, soln_file = TRUE,
-  zip_files = TRUE)
+assignr(
+  file,
+  output_dir = NULL,
+  assign_file = TRUE,
+  soln_file = TRUE,
+  zip_files = TRUE,
+  render_files = TRUE
+)
 }
 \arguments{
 \item{file}{Input `.Rmd` file with `-main.Rmd` in the filename.}
@@ -17,6 +23,9 @@ assignr(file, output_dir = NULL, assign_file = TRUE, soln_file = TRUE,
 \item{soln_file}{Generate Solution Material. Default is `TRUE`.}
 
 \item{zip_files}{Create a zip file containing the relevant materials.
+Default is `TRUE`.}
+
+\item{render_files}{Create HTML and PDF output for each Rmd file.
 Default is `TRUE`.}
 }
 \value{

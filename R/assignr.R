@@ -51,7 +51,8 @@ generate_hw_pkg = function(x,
                            type,
                            output_dir = paste0(name, "-", type),
                            render_files = TRUE,
-                           zip_files = TRUE) {
+                           zip_files = TRUE,
+                           file_dependencies = NULL) {
 
   if (length(remove_indexes) > 0) {
     # create assignment output lines
@@ -68,6 +69,12 @@ generate_hw_pkg = function(x,
 
   # Make the directory
   dir.create(output_path, recursive = TRUE)
+
+  # Fill directory
+  if(length(file_dependencies) >= 1) {
+    file.copy(file_dependencies,
+              file.path(output_path, basename(file_dependencies)))
+  }
 
   # Name of Rmd file to build
   rmd_material_name = file.path(output_path,
@@ -103,6 +110,11 @@ extract_hw_name = function(x) {
   stringr::str_replace(basename(x),
                        "-.*", "")
 
+}
+
+hw_dir_dependencies = function(x) {
+  main_dir_files = list.files(dirname(x))
+  grep(main_dir_files, pattern='-(main|assign|sol)', invert=TRUE, value=TRUE)
 }
 
 #' Retrieve example file path
@@ -181,6 +193,8 @@ assignr = function(file,
 
   hw_name = extract_hw_name(file)
 
+  hw_dependency_files = hw_dir_dependencies(file)
+
   input_lines = readLines(file)
 
   chunk_tick_lines = detect_positions(input_lines,  "```")
@@ -220,7 +234,8 @@ assignr = function(file,
       type = "assign",
       output_dir = output_dir,
       render_files = render_files,
-      zip_files = zip_files
+      zip_files = zip_files,
+      file_dependencies = hw_dependency_files
     )
   }
 
@@ -232,7 +247,8 @@ assignr = function(file,
       type = "soln",
       output_dir = output_dir,
       render_files = render_files,
-      zip_files = zip_files
+      zip_files = zip_files,
+      file_dependencies = hw_dependency_files
     )
   }
 

@@ -113,7 +113,7 @@ extract_hw_name = function(x) {
 }
 
 hw_dir_dependencies = function(x) {
-  main_dir_files = list.files(dirname(x), full.names = TRUE)
+  main_dir_files = list.files(dirname(x), full.names = TRUE, recursive = TRUE)
   grep(main_dir_files, pattern='-(main|assign|sol)', invert=TRUE, value=TRUE)
 }
 

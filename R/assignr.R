@@ -75,8 +75,8 @@ generate_hw_pkg = function(x,
   if(length(file_dependencies) >= 1) {
 
     # Create any required directories for the copy
-    for(dir in unique(dirname(file_dependencies))) {
-      dir.create(file.path(output_path, dir),
+    for(dir_dependent in unique(dirname(file_dependencies))) {
+      dir.create(file.path(output_path, dir_dependent),
                  showWarnings = FALSE, recursive = TRUE)
     }
 

@@ -76,7 +76,8 @@ generate_hw_pkg = function(x,
 
     # Create any required directories for the copy
     for(dir in unique(dirname(file_dependencies))) {
-      dir.create(file.path(output_path, dir), showWarnings = FALSE)
+      dir.create(file.path(output_path, dir),
+                 showWarnings = FALSE, recursive = TRUE)
     }
 
     # Perform a vectorized copy to the appropriate directory

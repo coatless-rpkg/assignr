@@ -52,7 +52,8 @@ generate_hw_pkg = function(x,
                            output_dir = paste0(name, "-", type),
                            render_files = TRUE,
                            zip_files = TRUE,
-                           file_dependencies = NULL) {
+                           hw_directory = '',
+                           file_dependencies = character(0)) {
 
   if (length(remove_indexes) > 0) {
     # create assignment output lines
@@ -72,8 +73,15 @@ generate_hw_pkg = function(x,
 
   # Fill directory
   if(length(file_dependencies) >= 1) {
-    file.copy(file_dependencies,
-              file.path(output_path, basename(file_dependencies)))
+
+    # Create any required directories for the copy
+    for(dir in unique(dirname(file_dependencies))) {
+      dir.create(file.path(output_path, dir), showWarnings = FALSE)
+    }
+
+    # Perform a vectorized copy to the appropriate directory
+    file.copy(file.path(hw_directory, file_dependencies),
+              file.path(output_path, file_dependencies))
   }
 
   # Name of Rmd file to build
@@ -112,9 +120,22 @@ extract_hw_name = function(x) {
 
 }
 
-hw_dir_dependencies = function(x) {
-  main_dir_files = list.files(dirname(x), full.names = TRUE, recursive = TRUE)
-  grep(main_dir_files, pattern='-(main|assign|sol)', invert=TRUE, value=TRUE)
+hw_dir_dependencies = function(hw_directory) {
+  # Move to where the file might be found
+  old_wd = setwd(file.path(hw_directory))
+
+  # Determine all files and directories within the homework directory
+  main_dir_files = list.files(path = ".", full.names = TRUE, recursive = TRUE)
+
+  # Avoid retrieving any file matching our exclusion list
+  hw_dependencies = grep(main_dir_files, pattern = '-(main|assign|sol)',
+                         invert = TRUE, value = TRUE)
+
+  # Return to original working directory
+  setwd(old_wd)
+
+  # Release files
+  hw_dependencies
 }
 
 #' Retrieve example file path
@@ -185,16 +206,23 @@ assignr = function(file,
                    zip_files = TRUE,
                    render_files = TRUE) {
 
+  # Minimal conditions for processing.
   if (length(file) != 1) {
     stop("Only one file may be processed at time.")
   } else if (!grep( "-main.Rmd$", file)) {
     stop("Supplied file must have -main.Rmd")
   }
 
+  # Retrieve value before -main.Rmd
   hw_name = extract_hw_name(file)
 
-  hw_dependency_files = hw_dir_dependencies(file)
+  # Obtain location of the homework directory
+  hw_directory = dirname(file)
 
+  # Extract a local file structure
+  hw_dependency_files = hw_dir_dependencies(hw_directory)
+
+  # Begin processing chunks
   input_lines = readLines(file)
 
   chunk_tick_lines = detect_positions(input_lines,  "```")
@@ -235,6 +263,7 @@ assignr = function(file,
       output_dir = output_dir,
       render_files = render_files,
       zip_files = zip_files,
+      hw_directory = hw_directory,
       file_dependencies = hw_dependency_files
     )
   }
@@ -248,6 +277,7 @@ assignr = function(file,
       output_dir = output_dir,
       render_files = render_files,
       zip_files = zip_files,
+      hw_directory = hw_directory,
       file_dependencies = hw_dependency_files
     )
   }

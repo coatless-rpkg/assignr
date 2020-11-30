@@ -76,4 +76,12 @@ assignr(hw00_file, "solution-set", assign_file = FALSE)
 
 # Create only HTML documents for both assignment and solution files.
 assignr(hw00_file, "test-html", output_format = "html_document")
+
+\dontshow{
+# Clean up generated directories
+unlink("test", recursive = TRUE)
+unlink("assignment-set", recursive = TRUE)
+unlink("solution-set", recursive = TRUE)
+unlink("test-html", recursive = TRUE)
+}
 }

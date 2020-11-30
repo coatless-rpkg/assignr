@@ -216,6 +216,14 @@ get_example_filepath = function(x) {
 #'
 #' # Create only HTML documents for both assignment and solution files.
 #' assignr(hw00_file, "test-html", output_format = "html_document")
+#'
+#' \dontshow{
+#' # Clean up generated directories
+#' unlink("test", recursive = TRUE)
+#' unlink("assignment-set", recursive = TRUE)
+#' unlink("solution-set", recursive = TRUE)
+#' unlink("test-html", recursive = TRUE)
+#' }
 assignr = function(file,
                    output_dir = NULL,
                    output_format = c("html_document", "pdf_document"),

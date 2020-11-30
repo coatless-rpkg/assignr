@@ -168,14 +168,18 @@ get_example_filepath = function(x) {
 #' Transforms an RMarkdown file into two separate files: `filename-assign`
 #' and `filename-solutions`
 #'
-#' @param file         Input `.Rmd` file with `-main.Rmd` in the filename.
-#' @param output_dir   Output directory. Defaults to name of prefix of filename.
-#' @param soln_file    Generate Solution Material. Default is `TRUE`.
-#' @param assign_file  Generate Student Assignment Material. Default is `TRUE`.
-#' @param zip_files    Create a zip file containing the relevant materials.
-#'                     Default is `TRUE`.
-#' @param render_files Create HTML and PDF output for each Rmd file.
-#'                     Default is `TRUE`.
+#' @param file          Input `.Rmd` file with `-main.Rmd` in the filename.
+#' @param output_dir    Output directory. Defaults to name of prefix of filename.
+#' @param output_format Output file type.  Any [rmarkdown::render()] output
+#'                      format should work.
+#'                      Defaults to generating both an HTML and PDF output with
+#'                      `c("html_document", "pdf_document")`.
+#' @param soln_file     Generate Solution Material. Default is `TRUE`.
+#' @param assign_file   Generate Student Assignment Material. Default is `TRUE`.
+#' @param zip_files     Create a zip file containing the relevant materials.
+#'                      Default is `TRUE`.
+#' @param render_files  Create HTML and PDF output for each Rmd file.
+#'                      Default is `TRUE`.
 #' @export
 #' @return The function will generate assignment files for students and
 #' solution keys for instructors.
@@ -194,13 +198,24 @@ get_example_filepath = function(x) {
 #' documents.
 #'
 #' @examples
+#' # Obtain an example file
 #' hw00_file = get_example_filepath("hw00-main.Rmd")
 #'
 #' if(interactive()) {
 #'     file.show(hw00_file)
 #' }
 #'
+#' # Generate both PDF and HTML outputs for assign and solution.
 #' assignr(hw00_file, "test")
+#'
+#' # Generate only the assignment
+#' assignr(hw00_file, "assignment-set", soln_file = FALSE)
+#'
+#' # Generate only the solution
+#' assignr(hw00_file, "solution-set", assign_file = FALSE)
+#'
+#' # Create only HTML documents for both assignment and solution files.
+#' assignr(hw00_file, "test-html", output_format = "html_document")
 assignr = function(file,
                    output_dir = NULL,
                    output_format = c("html_document", "pdf_document"),

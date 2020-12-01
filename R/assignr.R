@@ -50,6 +50,7 @@ generate_hw_pkg = function(x,
                            name,
                            type,
                            output_dir = paste0(name, "-", type),
+                           output_format = c("html_document", "pdf_document"),
                            render_files = TRUE,
                            zip_files = TRUE,
                            hw_directory = '',
@@ -99,7 +100,7 @@ generate_hw_pkg = function(x,
       rmd_material_name,
       encoding = "UTF-8",
       envir = new.env(),
-      output_format = c("html_document", "pdf_document"),
+      output_format = output_format,
       quiet = TRUE
     )
   }
@@ -167,14 +168,18 @@ get_example_filepath = function(x) {
 #' Transforms an RMarkdown file into two separate files: `filename-assign`
 #' and `filename-solutions`
 #'
-#' @param file         Input `.Rmd` file with `-main.Rmd` in the filename.
-#' @param output_dir   Output directory. Defaults to name of prefix of filename.
-#' @param soln_file    Generate Solution Material. Default is `TRUE`.
-#' @param assign_file  Generate Student Assignment Material. Default is `TRUE`.
-#' @param zip_files    Create a zip file containing the relevant materials.
-#'                     Default is `TRUE`.
-#' @param render_files Create HTML and PDF output for each Rmd file.
-#'                     Default is `TRUE`.
+#' @param file          Input `.Rmd` file with `-main.Rmd` in the filename.
+#' @param output_dir    Output directory. Defaults to name of prefix of filename.
+#' @param output_format Output file type.  Any [rmarkdown::render()] output
+#'                      format should work.
+#'                      Defaults to generating both an HTML and PDF output with
+#'                      `c("html_document", "pdf_document")`.
+#' @param soln_file     Generate Solution Material. Default is `TRUE`.
+#' @param assign_file   Generate Student Assignment Material. Default is `TRUE`.
+#' @param zip_files     Create a zip file containing the relevant materials.
+#'                      Default is `TRUE`.
+#' @param render_files  Create HTML and PDF output for each Rmd file.
+#'                      Default is `TRUE`.
 #' @export
 #' @return The function will generate assignment files for students and
 #' solution keys for instructors.
@@ -193,15 +198,35 @@ get_example_filepath = function(x) {
 #' documents.
 #'
 #' @examples
+#' # Obtain an example file
 #' hw00_file = get_example_filepath("hw00-main.Rmd")
 #'
 #' if(interactive()) {
 #'     file.show(hw00_file)
 #' }
 #'
+#' # Generate both PDF and HTML outputs for assign and solution.
 #' assignr(hw00_file, "test")
+#'
+#' # Generate only the assignment
+#' assignr(hw00_file, "assignment-set", soln_file = FALSE)
+#'
+#' # Generate only the solution
+#' assignr(hw00_file, "solution-set", assign_file = FALSE)
+#'
+#' # Create only HTML documents for both assignment and solution files.
+#' assignr(hw00_file, "test-html", output_format = "html_document")
+#'
+#' \dontshow{
+#' # Clean up generated directories
+#' unlink("test", recursive = TRUE)
+#' unlink("assignment-set", recursive = TRUE)
+#' unlink("solution-set", recursive = TRUE)
+#' unlink("test-html", recursive = TRUE)
+#' }
 assignr = function(file,
                    output_dir = NULL,
+                   output_format = c("html_document", "pdf_document"),
                    assign_file = TRUE,
                    soln_file = TRUE,
                    zip_files = TRUE,
@@ -262,6 +287,7 @@ assignr = function(file,
       name = hw_name,
       type = "assign",
       output_dir = output_dir,
+      output_format = output_format,
       render_files = render_files,
       zip_files = zip_files,
       hw_directory = hw_directory,
@@ -276,6 +302,7 @@ assignr = function(file,
       name = hw_name,
       type = "soln",
       output_dir = output_dir,
+      output_format = output_format,
       render_files = render_files,
       zip_files = zip_files,
       hw_directory = hw_directory,

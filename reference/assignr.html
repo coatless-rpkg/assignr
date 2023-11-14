@@ -137,23 +137,19 @@ documents.</p>
 <span class="r-in"><span><span class="co"># Generate both PDF and HTML outputs for assign and solution.</span></span></span>
 <span class="r-in"><span><span class="fu">assignr</span><span class="op">(</span><span class="va">hw00_file</span>, <span class="st">"test"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Building hw00-assign files</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>error in running command</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ! sh: 1: pdflatex: not found</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> LaTeX failed to compile hw00-assign.tex. See https://yihui.org/tinytex/r/#debugging for debugging tips. See hw00-assign.log for more info.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Creating a zip file for hw00-assign</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Building hw00-soln files</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Creating a zip file for hw00-soln</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Generate only the assignment</span></span></span>
 <span class="r-in"><span><span class="fu">assignr</span><span class="op">(</span><span class="va">hw00_file</span>, <span class="st">"assignment-set"</span>, soln_file <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Building hw00-assign files</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>error in running command</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ! sh: 1: pdflatex: not found</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> LaTeX failed to compile hw00-assign.tex. See https://yihui.org/tinytex/r/#debugging for debugging tips. See hw00-assign.log for more info.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Creating a zip file for hw00-assign</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Generate only the solution</span></span></span>
 <span class="r-in"><span><span class="fu">assignr</span><span class="op">(</span><span class="va">hw00_file</span>, <span class="st">"solution-set"</span>, assign_file <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Building hw00-soln files</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>error in running command</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ! sh: 1: pdflatex: not found</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> LaTeX failed to compile hw00-soln.tex. See https://yihui.org/tinytex/r/#debugging for debugging tips. See hw00-soln.log for more info.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Creating a zip file for hw00-soln</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Create only HTML documents for both assignment and solution files.</span></span></span>
 <span class="r-in"><span><span class="fu">assignr</span><span class="op">(</span><span class="va">hw00_file</span>, <span class="st">"test-html"</span>, output_format <span class="op">=</span> <span class="st">"html_document"</span><span class="op">)</span></span></span>

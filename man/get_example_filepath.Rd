@@ -7,7 +7,7 @@
 get_example_filepath(x)
 }
 \arguments{
-\item{x}{A `character` containing the name of the example Rmd.}
+\item{x}{A \code{character} containing the name of the example Rmd.}
 }
 \value{
 File path to the example file that ships with the package.
@@ -17,7 +17,9 @@ Obtains the file path for the example Rmd in the package.
 }
 \details{
 The following example files ship with the package:
-- hw00-main.Rmd
+\itemize{
+\item hw00-main.Rmd
+}
 }
 \examples{
 get_example_filepath("hw00-main.Rmd")

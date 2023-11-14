@@ -15,45 +15,45 @@ assignr(
 )
 }
 \arguments{
-\item{file}{Input `.Rmd` file with `-main.Rmd` in the filename.}
+\item{file}{Input \code{.Rmd} file with \code{-main.Rmd} in the filename.}
 
 \item{output_dir}{Output directory. Defaults to name of prefix of filename.}
 
-\item{output_format}{Output file type.  Any [rmarkdown::render()] output
+\item{output_format}{Output file type.  Any \code{\link[rmarkdown:render]{rmarkdown::render()}} output
 format should work.
 Defaults to generating both an HTML and PDF output with
-`c("html_document", "pdf_document")`.}
+\code{c("html_document", "pdf_document")}.}
 
-\item{assign_file}{Generate Student Assignment Material. Default is `TRUE`.}
+\item{assign_file}{Generate Student Assignment Material. Default is \code{TRUE}.}
 
-\item{soln_file}{Generate Solution Material. Default is `TRUE`.}
+\item{soln_file}{Generate Solution Material. Default is \code{TRUE}.}
 
 \item{zip_files}{Create a zip file containing the relevant materials.
-Default is `TRUE`.}
+Default is \code{TRUE}.}
 
 \item{render_files}{Create HTML and PDF output for each Rmd file.
-Default is `TRUE`.}
+Default is \code{TRUE}.}
 }
 \value{
 The function will generate assignment files for students and
 solution keys for instructors.
 }
 \description{
-Transforms an RMarkdown file into two separate files: `filename-assign`
-and `filename-solutions`
+Transforms an RMarkdown file into two separate files: \code{filename-assign}
+and \code{filename-solutions}
 }
 \details{
-The `file` parameter _must_ have the suffix `-main.Rmd`. The reason for
+The \code{file} parameter \emph{must} have the suffix \code{-main.Rmd}. The reason for
 requiring this naming scheme is all work should be done in the "main"
 document. By enforcing the naming requirement, we are prevent work from
 being overridden.
 }
 \section{Folder structure}{
 
-If `output_dir` is specified, then it will be used as the parent
-for two folders: `*-assign` and `*-sol`, where `*` is given by the part
-preceeding `-main.Rmd`. Inside the folders, there will be `html`, `pdf`,
-and `Rmd` documents alongside a `zip` a folder containing all of the
+If \code{output_dir} is specified, then it will be used as the parent
+for two folders: \verb{*-assign} and \verb{*-sol}, where \code{*} is given by the part
+preceeding \code{-main.Rmd}. Inside the folders, there will be \code{html}, \code{pdf},
+and \code{Rmd} documents alongside a \code{zip} a folder containing all of the
 documents.
 }
 

@@ -1,7 +1,7 @@
 # assignr 
 
 <!-- badges: start -->
-[![R build status](https://github.com/r-assist/assignr/workflows/R-CMD-check/badge.svg)](https://github.com/r-assist/assignr/actions)
+[![R build status](https://github.com/coatless-rpkg/assignr/workflows/R-CMD-check/badge.svg)](https://github.com/coatless-rpkg/assignr/actions)
 [![Package-License](http://img.shields.io/badge/license-GPL%20(%3E=2)-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
 <!-- badges: end -->
 
@@ -27,7 +27,7 @@ To install the package from GitHub, you can type:
 ```r
 install.packages("devtools")
 
-devtools::install_github("coatless/assignr")
+devtools::install_github("coatless-rpkg/assignr")
 ```
 
 ## Usage
